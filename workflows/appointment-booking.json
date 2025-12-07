@@ -1,1 +1,7 @@
-{}
+{
+  "name": "Appointment Booking",
+  "description": "Automates scheduling using time windows and business rules.",
+  "version": 1,
+  "nodes": [],
+  "trigger": "appointment_request"
+}

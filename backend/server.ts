@@ -10,4 +10,13 @@ app.get("/", (req, res) => {
   res.json({ status: "Backend API is running" });
 });
 
+app.get("/api/health", (_, res) => {
+  res.json({
+    status: "ok",
+    backend: true,
+    supabase_connected: Boolean(process.env.SUPABASE_URL),
+    timestamp: new Date().toISOString()
+  });
+});
+
 app.listen(4000, () => console.log("API running on port 4000"));

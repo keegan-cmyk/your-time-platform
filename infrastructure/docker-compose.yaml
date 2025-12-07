@@ -1,8 +1,47 @@
-version: "3"
+version: "3.9"
+
 services:
-  n8n:
+  backend:
     build:
-      context: ..
-      dockerfile: ./infrastructure/n8n.dockerfile
+      context: ../backend
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+    depends_on:
+      - supabase-db
+
+  frontend:
+    build:
+      context: ../frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_SUPABASE_URL=${SUPABASE_URL}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+      - NEXT_PUBLIC_BACKEND_URL=http://localhost:4000
+    depends_on:
+      - backend
+
+  n8n:
+    image: n8nio/n8n:latest
     ports:
       - "5678:5678"
+    environment:
+      - GENERIC_TIMEZONE=America/New_York
+      - WEBHOOK_URL=http://localhost:5678/
+      - N8N_PERSONALIZATION_ENABLED=false
+
+  supabase-db:
+    image: supabase/postgres:15
+    container_name: supabase-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: supa
+      POSTGRES_USER: supabase
+      POSTGRES_DB: yourtime
+    ports:
+      - "5432:5432"

@@ -1,1 +1,7 @@
-{}
+{
+  "name": "Lead Qualification",
+  "description": "Qualifies inbound leads using dynamic questions.",
+  "version": 1,
+  "nodes": [],
+  "trigger": "lead_inbound"
+}

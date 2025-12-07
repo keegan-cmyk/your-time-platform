@@ -1,1 +1,7 @@
-{}
+{
+  "name": "YouTube Auto Engagement",
+  "description": "Responds to comments, analyzes sentiment, and boosts engagement.",
+  "version": 1,
+  "nodes": [],
+  "trigger": "youtube_comment"
+}

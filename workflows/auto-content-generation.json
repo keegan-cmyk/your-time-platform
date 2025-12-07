@@ -1,1 +1,7 @@
-{}
+{
+  "name": "Auto Content Generator",
+  "description": "Creates posts, reels, emails, and responses automatically.",
+  "version": 1,
+  "nodes": [],
+  "trigger": "content_cycle"
+}
