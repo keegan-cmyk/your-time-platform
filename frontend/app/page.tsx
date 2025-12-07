@@ -1,8 +1,17 @@
+import Sidebar from "../components/Sidebar";
+import Header from "../components/Header";
+
 export default function Home() {
   return (
-    <div style={{ padding: 40 }}>
-      <h1>Your Time Automation Platform</h1>
-      <p>Connect workflows, deploy agents, and automate your business.</p>
-    </div>
+    <>
+      <Sidebar />
+      <div style={{ flex: 1 }}>
+        <Header title="Dashboard" />
+        <div style={{ padding: 40 }}>
+          <h1>Welcome to Your Time</h1>
+          <p>Your automation control center.</p>
+        </div>
+      </div>
+    </>
   );
 }

@@ -1,3 +1,7 @@
-export default function Header() {
-  return <header style={{ padding: 20 }}>Header</header>;
+export default function Header({ title }: { title: string }) {
+  return (
+    <div className="header">
+      <h2>{title}</h2>
+    </div>
+  );
 }
