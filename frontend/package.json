@@ -14,5 +14,10 @@
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
     "swr": "^2.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "typescript": "^5.9.3"
   }
 }
