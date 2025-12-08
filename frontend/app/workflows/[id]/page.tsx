@@ -7,7 +7,7 @@ import { api, authHeader } from "../../../lib/api";
 
 export default function WorkflowEditor({ params }: { params: { id: string } }) {
   const { id } = params;
-  const [workflow, setWorkflow] = useState(null);
+  const [workflow, setWorkflow] = useState<any>(null);
 
   async function load() {
     const headers = await authHeader();
@@ -26,10 +26,10 @@ export default function WorkflowEditor({ params }: { params: { id: string } }) {
     <>
       <Sidebar />
       <div style={{ flex: 1 }}>
-        <Header title={workflow.name} />
+        <Header title={workflow?.name ?? ""} />
         <div style={{ padding: 40 }}>
           <h2>Edit Workflow</h2>
-          <pre>{JSON.stringify(workflow.json, null, 2)}</pre>
+          <pre>{JSON.stringify(workflow?.json, null, 2)}</pre>
         </div>
       </div>
     </>
