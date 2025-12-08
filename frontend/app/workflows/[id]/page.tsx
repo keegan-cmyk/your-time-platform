@@ -5,7 +5,7 @@ import Header from "../../../components/Header";
 import { useEffect, useState } from "react";
 import { api, authHeader } from "../../../lib/api";
 
-export default function WorkflowEditor({ params }) {
+export default function WorkflowEditor({ params }: { params: { id: string } }) {
   const { id } = params;
   const [workflow, setWorkflow] = useState(null);
 
