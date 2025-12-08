@@ -19,24 +19,20 @@ export default function Workflows() {
       <Sidebar />
       <div style={{ flex: 1 }}>
         <Header title="Workflows" />
-
         <div style={{ padding: 40 }}>
           <h2>Your Workflows</h2>
-
           {!data && <p>Loading...</p>}
           {error && <p style={{ color: "red" }}>Failed to load workflows.</p>}
-
           {data?.length === 0 && <p>No workflows yet.</p>}
-
           <div style={{ display: "grid", gap: 20, marginTop: 20 }}>
-            {data?.map((w) => (
+            {data?.map((w: any) => (
               <div
                 key={w.id}
                 style={{
                   background: "white",
                   padding: 20,
                   border: "1px solid #ddd",
-                  borderRadius: 8
+                  borderRadius: 8,
                 }}
               >
                 <h3>{w.name}</h3>
