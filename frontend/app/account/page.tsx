@@ -1,21 +1,25 @@
 "use client";
 
+export const dynamic = 'force-dynamic';
+
 import Sidebar from "../../components/Sidebar";
 import Header from "../../components/Header";
 import { supabase } from "../../lib/supabaseClient";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function AccountPage() {
   const [email, setEmail] = useState("");
 
   async function load() {
     const {
-      data: { user }
+      data: { user },
     } = await supabase.auth.getUser();
     setEmail(user?.email || "");
   }
 
-  load();
+  useEffect(() => {
+    load();
+  }, []);
 
   return (
     <>
