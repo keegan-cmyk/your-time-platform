@@ -19,4 +19,9 @@ app.get("/api/health", (_, res) => {
   });
 });
 
+app.post("/api/workflow-request", authenticate, (req, res) => {
+  console.log("Workflow Request:", req.body);
+  res.json({ success: true });
+});
+
 app.listen(4000, () => console.log("API running on port 4000"));

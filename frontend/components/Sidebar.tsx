@@ -7,7 +7,11 @@ export default function Sidebar() {
 
       <nav style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <Link href="/">Dashboard</Link>
-        <Link href="/workflows">Workflows</Link>
+        <Link href="/marketplace">Marketplace</Link>
+        <Link href="/workflows">My Workflows</Link>
+        <Link href="/request">Request Workflow</Link>
+        <Link href="/examples">Examples</Link>
+        <Link href="/onboarding">Onboarding</Link>
         <Link href="/account">Account</Link>
       </nav>
     </div>
