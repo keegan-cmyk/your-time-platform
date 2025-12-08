@@ -12,7 +12,7 @@ export default function WorkflowEditor({ params }: { params: { id: string } }) {
   async function load() {
     const headers = await authHeader();
     const res = await api.get(`/api/workflows`, { headers });
-    const wf = res.data.find((w) => w.id === id);
+    const wf = res.data.find((w: any) => w.id === id);
     setWorkflow(wf);
   }
 
