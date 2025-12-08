@@ -38,7 +38,7 @@ export default function WorkflowEditor({ params }: { params: { id: string } }) {
     <>
       <Sidebar />
       <div style={{ flex: 1 }}>
-        <Header title={workflow.name} />
+        <Header title={workflow.name ?? "Untitled Workflow"} />
         <div style={{ padding: 40 }}>
           <h2>Edit Workflow</h2>
           <pre>{JSON.stringify(workflow.json, null, 2)}</pre>
